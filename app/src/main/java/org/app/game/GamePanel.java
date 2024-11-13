@@ -69,10 +69,10 @@ public class GamePanel extends JPanel implements ActionListener {
     graphics.drawString("SCORE: " + counter, WINDOW_WIDTH - 327, 15);
 
     graphics.setColor(new Color(50, 50, 50));
-//     for (int i = 0; i < WINDOW_HEIGHT / UNIT_SIZE; i++) {
-//     graphics.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, WINDOW_HEIGHT); // |
-//     graphics.drawLine(0, i * UNIT_SIZE, WINDOW_WIDTH, i * UNIT_SIZE); // -
-//     }
+    // for (int i = 0; i < WINDOW_HEIGHT / UNIT_SIZE; i++) {
+    // graphics.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, WINDOW_HEIGHT); // |
+    // graphics.drawLine(0, i * UNIT_SIZE, WINDOW_WIDTH, i * UNIT_SIZE); // -
+    // }
 
     if (running) {
       for (int i = 0; i < snakeLength; i++) {
