@@ -5,43 +5,41 @@ import java.awt.*;
 
 public class GameOverPanel extends JPanel {
 
-    private JButton backInMenu;
-//    private JButton saveRes;
+  private JButton backInMenu;
+  // private JButton saveRes;
 
-    private JLabel gameOverMsg;
-    private JLabel gameScoreMsg;
+  private JLabel gameOverMsg;
+  private JLabel gameScoreMsg;
 
+  public GameOverPanel(AppFrame frame, int score) {
 
-    public GameOverPanel(AppFrame frame, int score) {
+    this.setLayout(new GridBagLayout());
+    this.setBackground(new Color(75, 80, 80));
 
-        this.setLayout(new GridBagLayout());
-        this.setBackground(new Color(75, 80, 80));
+    // saveRes = new JButton("Save Result");
+    backInMenu = new JButton("Menu");
 
-//        saveRes = new JButton("Save Result");
-        backInMenu = new JButton("Menu");
+    gameOverMsg = new JLabel("Game Over");
+    gameScoreMsg = new JLabel("Score: " + score);
 
-        gameOverMsg = new JLabel("Game Over");
-        gameScoreMsg = new JLabel("Score: " + score);
+    backInMenu.addActionListener(e -> frame.showMenuPanel());
+    // saveRes.addActionListener(e -> {});
 
-        backInMenu.addActionListener(e -> frame.showMenuPanel());
-//        saveRes.addActionListener(e -> {});
+    GridBagConstraints gbc = new GridBagConstraints();
+    gbc.gridy = 0;
+    gbc.insets = new Insets(5, 5, 5, 5);
+    gbc.anchor = GridBagConstraints.CENTER;
+    this.add(gameOverMsg, gbc);
+    gbc.gridy = 1;
+    this.add(gameScoreMsg, gbc);
 
+    gbc.gridwidth = 1;
+    gbc.gridy = 2;
+    gbc.insets = new Insets(5, 10, 5, 10);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridy = 0;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.CENTER;
-        this.add(gameOverMsg, gbc);
-        gbc.gridy = 1;
-        this.add(gameScoreMsg, gbc);
-
-        gbc.gridwidth = 1;
-        gbc.gridy = 2;
-        gbc.insets = new Insets(5, 10, 5, 10);
-
-        gbc.gridx = 0;
-        this.add(backInMenu, gbc);
-//        gbc.gridx = 1;
-//        this.add(exitButton, gbc);
-    }
+    gbc.gridx = 0;
+    this.add(backInMenu, gbc);
+    // gbc.gridx = 1;
+    // this.add(exitButton, gbc);
+  }
 }
