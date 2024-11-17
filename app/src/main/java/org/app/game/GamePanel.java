@@ -10,6 +10,8 @@ public class GamePanel extends JPanel implements ActionListener {
   // window
   private final int WINDOW_WIDTH = 600;
   private final int WINDOW_HEIGHT = 600;
+  private final int POINT_WINDOW_WIDTH = 600;
+  private final int POINT_WINDOW_HEIGHT = 500;
 
   // game units
   private final int UNIT_SIZE = 20;
@@ -69,11 +71,6 @@ public class GamePanel extends JPanel implements ActionListener {
     graphics.drawString("SCORE: " + counter, WINDOW_WIDTH - 327, 15);
 
     graphics.setColor(new Color(50, 50, 50));
-    // for (int i = 0; i < WINDOW_HEIGHT / UNIT_SIZE; i++) {
-    // graphics.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, WINDOW_HEIGHT); // |
-    // graphics.drawLine(0, i * UNIT_SIZE, WINDOW_WIDTH, i * UNIT_SIZE); // -
-    // }
-
     if (running) {
       for (int i = 0; i < snakeLength; i++) {
         graphics.setColor(new Color(148, 143, 132));
@@ -119,8 +116,8 @@ public class GamePanel extends JPanel implements ActionListener {
   }
 
   private void createPoint() {
-    pointX = random.nextInt((int) (WINDOW_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
-    pointY = random.nextInt((int) (WINDOW_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+    pointX = random.nextInt((int) (POINT_WINDOW_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
+    pointY = random.nextInt((int) (POINT_WINDOW_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
   }
 
   private void checkPoint() {
@@ -134,12 +131,12 @@ public class GamePanel extends JPanel implements ActionListener {
 
   private void checkCollision() {
     // right and left side collision
-    if ((snakeX[0] > WINDOW_WIDTH) || (snakeX[0] < 0)) {
+    if ((snakeX[0] > WINDOW_WIDTH - 20) || (snakeX[0] < 0)) {
       running = false;
     }
 
     // top and bottom side collision
-    if ((snakeY[0] > WINDOW_HEIGHT) || (snakeY[0] < 0)) {
+    if ((snakeY[0] > WINDOW_HEIGHT - 40) || (snakeY[0] < 20)) {
       running = false;
     }
 
